@@ -1,0 +1,844 @@
+@charset "UTF-8";
+/*
+СЕЛЕКТОРЫ
+p {...}  по тегу
+.title {...}  по классу
+p.warning {...}  тег с классом
+#promo {...} по id
+h1#chapter1 {...} тег с id
+.title a {...} тег внутри тега с классом
+.title .bage {...} класс внутри класса
+.title > a {...} след. дочерний тег внутри тега с классом
+.title em + a {...} последов-ть тегов внутри тега с классом
+img[title]
+input[type="text"]
+a[href^="http://"]
+a[href$=".pdf"]
+*/
+/*
+ПСЕВДОЕЛЕМЕНТЫ
+:not() - p:not(.classy) { color: blue; } выбрать что-либо отличное от другого
+:first-letter
+:first-line
+:first-child выбирает первый указаный с переди тег в каждом из блоков (div,ul,ol и тд.)
+:first-of-type - Селектор работает так же, как и :first-child, но применяется применяется к последнему экземпляру элемента определенного типа
+:only-child - Пример. Он указывает, что цвет текста должен быть красным, но только в том случае,
+если внутри элемента находится лишь один абзац
+:last-child выбирает последний указаный с переди тег в каждом из блоков (div,ul,ol и тд.)
+:nth-child(odd)
+:nth-of-type(odd)
+:nth-of-type(even)
+:nth-child(even)
+:last-of-type -  применяется к последнему экземпляру элемента определенного типа.
+:hover { } – курсор мыши в пределах элемента
+:active { } – при активации элемента
+:focus { } – при получении фокуса элемента
+:link { } – непосещенные ссылки
+:visited { } – посещенные ссылки
+:after { } – выводит контент после элемента
+:valid – валидное поле
+:invalid – невалидное
+:required – обязательное
+:optional – необязательное
+Их можно использовать, чтобы добавлять некоторые – хотя и весьма
+ограниченные – подсказки пользователям, заполняющим форму.
+   /*
+
+
+/*
+::first-letter { } – определяет стиль первого символа в тексте элемента
+::first-line { } – задает стиль первой строки форматированного текста
+::after { } – выводит контент после элемента
+::before { } – выводит контент перед элементом
+::selection - нажав и удерживая кнопку мыши над текстом, перетаскивает указатель мыши, браузер выделяет этот текст и посетитель сможет скопировать выделенный фрагмент
+*/
+/*АДАПТИВНОСТЬ САЙТОВ*/
+/*@media (min-width:900px) {..}*/
+/*@media (max-width:899px) and (min-width:600px) {..}*/
+/*@media (max-width:599px) {..}*/
+/*footer { clear: both; } Запрет обтекания
+
+.container {
+  width: 1170px;
+  margin: 0px auto;
+}
+
+/*ПРИМЕР АДАПТИВНОГО ДИЗАЙНА С 3-МЯ КОЛОНКАМИ
+/*АДАПТИВНЫЙ САЙТ
+.grid {
+    display: grid; Элемент ведет себя как блочный элемент и размещает свое содержимое в   соответствии с моделью сетки. Дает возможность присваивать имена блокам и управлять их положениями на странице
+    min-height: 100vh;
+  grid-template-rows: 100px 50px 3fr 60px; задает висоту колонок
+  grid-template-columns: 1fr 3fr 1fr; задает ширину колонок
+  grid-template-areas: "hd hd hd" задает положение елементов относительно друг друга
+                      "nv nv nv"
+                      "lf mn rg"
+                      "ft ft ft"
+ }
+.header {
+  background-color: yellow;
+  grid-area: hd;
+}
+.nav {
+  background-color: rgb(55, 0, 255);
+  grid-area: nv;
+}
+.main {
+  background-color: red;
+  grid-area: mn;
+}
+.left {
+  background-color: rgb(99, 56, 3);
+  grid-area: lf;
+ }
+.right {
+  background-color: greenyellow;
+  grid-area: rg;
+ }
+.footer {
+  background-color: aqua;
+  grid-area: ft;
+}
+@media (max-width:1300px) {
+  .grid {
+    grid-template-rows: 100px 50px 3fr 60px 60px;
+    grid-template-columns: 1fr 3fr; /*задает ширину колонок
+    grid-template-areas: "hd hd"
+                        "nv nv"
+                        "lf mn"
+                        "rg rg"
+                        "ft ft"
+  }
+}
+@media (max-width:992px) {
+  .grid {
+    grid-template-rows: 100px 50px 3fr 60px 60px;
+    grid-template-columns: 2fr 2fr; /*задает ширину колонок
+    grid-template-areas: "hd hd"
+                        "nv nv"
+                        "mn mn"
+                        "lf rg"
+                        "ft ft"
+  }
+}
+@media (max-width:768px) {
+  .grid {
+    grid-template-rows: 100px 50px 3fr 60px 60px 60px;
+    grid-template-columns: 1fr; /*задает ширину колонок
+    grid-template-areas: "hd"
+                         "nv"
+                         "mn"
+                         "lf"
+                         "rg"
+                         "ft"
+  }
+} */
+/*ФОРМАТИРОВАНИЕ ТАБЛИЦИ
+table {
+  text-align: justify;
+  vertical-align: center;
+  border-spacing: 0;
+  border-collapse: collapse;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #F33;
+  empty-cells: hide;  скрыть пустые ячейки. Если свойству border-collapse присвоить
+                      значение collapse, браузеры   проигнорируют свойство empty-cells и отобразят границы и фоновый цвет даже пустых ячеек.
+}
+th, td {
+  padding-top: 10px;
+  padding-right: 5px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+  }
+tr:nth-of-type(odd) { background-color: red; }
+tr:nth-of-type(even) { background-color: blue; }*/
+/*ФОРМЫ
+input[type="text"] { Задать фон всем текстовым полям ввода
+  background-color: blue;
+  }
+
+  .label { Задать клас подпися на ячей ввода информации
+    display: inline-block;
+    width: 20em;
+    vertical-align: top;
+    text-align: right;
+    margin-right; 15px;
+    }
+    input :focus {} Задать стиль на ячейку которая выделена, с которой работают
+
+/* input:required:valid {/*оказать пользователю, правильно ли заполнено поле по мере ввода*/
+/* border-color: blue;*/
+/* }
+:TARGET
+ПРИМЕР
+При нажати на кнопку появится ФОРМА на заполнение.
+<button>
+<a href="#signupForm">Подпишитесь на нашу рассылку</a>
+</button>
+<form id="signupForm">
+<label for="email">Укажите свой адрес электронной почты</label>
+<input type="email" id="email">
+<input class="btn" type="submit" value="Подписаться">
+</form>
+#signupForm {
+  display: none;
+}
+#signupForm:target {
+  display: block;
+}*/
+/* ТИПОГРАФИКА */
+/*.text {
+  font-family: 'Times New Roman', Times, serif;
+  font-style: normal;
+  font-variant: small-caps slashed-zero;
+  font-weight: 300;
+  font-size: 56px;
+  line-height: 1.5em;
+  text-indent: 5em; отступа первой строки абзаца
+  letter-spacing: 1px;*/
+/* ОФОРМЛЕНИЕ */
+/*text-shadow: -4px 4px 3px #999999; задания трех параметров: горизонтального
+      смещения      (насколько левее или правее текста должна отображаться тень), вертикальное смещение (насколько выше или ниже текста должна появиться тень), степень размытости тени и цвет отбрасываемой тени.*/
+/* text-align: justify;
+vertical-align: top;
+/*padding: 0 0 2px 60px;
+/*margin-top: 20px;
+/*margin-left: 60px;
+/* text-decoration: none; /*blink | line-through | overline | underline | none*/
+/* text-transform: capitalize;  /*lowercase | uppercase*/
+/* color: red;}*/
+/*СПИСОК*/
+/*.list {*/
+/* list-style-position: inside;/*outside Установить местоположение можно вне или или внутри текстовых блоков элементов списка */
+/* list-style-image: url("file.jpg");*/
+/* list-style-type: circle;/*disc | square | armenian | decimal}*/
+/* margin-left: 30px;
+  /* margin-right: 40px
+
+
+
+
+ВЕРТИКАЛЬНАЯ ПАНЕЛЬ НАВИГАЦИИ
+ul.nav a {
+display: block; выравнивает все кнопки по ширине
+width: 8em; Ограничьте ширину кнопок.
+}
+a {
+height: 1.25em;
+line-height: 1.25em;
+
+
+ГОРИЗОНТАЛЬНАЯ ПАНЕЛЬ НАВИГАЦИИ
+ul.nav {
+margin-left: 0px;
+padding-left: 0px;
+list-style: none;
+border-bottom: 1px dashed #000;
+}
+.nav li {
+display: inline-block;
+border: 1px dashed #000;
+border-bottom: none;
+padding: 5px 15px 5px 15px;
+margin-right: -5px;
+background-color: #EAEAEA;
+text-decoration: none;
+color: #333;}
+
+
+
+ПАНЕЛЬ НАВИГАЦИИ НА ОСНОВЕ ПЛАВАЮЩИХ ЕЛЕМЕНТОВ
+.nav {
+margin: 0px;
+padding: 0px;
+list-style: none;
+border-bottom: 3px solid rgb(204,204,204);
+overflow: hidden;
+}
+.nav li {
+float: left;
+}
+.nav a {
+width: 12em;
+display: block;
+border: 3px solid rgb(204,204,204);
+border-bottom: none;
+border-radius: 5px 5px 0 0;
+padding: 10px;
+margin-right: 5px;
+background-color: rgb(95,95,95);
+background-image: -webkit-linear-gradient(rgb(175,175,175), rgb(95,95,95));
+background-image: -moz-linear-gradient(rgb(175,175,175), rgb(95,95,95));
+background-image: -o-linear-gradient(rgb(175,175,175), rgb(95,95,95));
+background-image: linear-gradient(rgb(175,175,175), rgb(95,95,95));
+text-decoration:none;
+color: white;
+text-align: center;
+font-family: Arial, Helvetica, sans-serif;
+font-weight: bold;
+}
+
+
+
+
+/*ГРАНИЦА*/
+/* .box {
+/* box-shadow: 0 1px 2px #CCC;*/
+/* border-color: red;*/
+/* border-style: solid;*/
+/* border-width: 2px;*/
+/* border-radius: 0 0 10px 10px;*/
+/* border: 4px solid rgb(255,0,0);*/
+/* }
+
+
+
+/*ФОН*/
+/* .background или html {*/
+/* background-color: #ffff00;*/
+/* background-image: url(img/foto.jpg);*/
+/* background-position: top;*/
+/* background-repeat: repeat-x;*/
+/* background-attachment: fixed;*/
+/* background-size: cover;*/
+/* z-index: 100;*/
+/* }
+
+
+
+/*ПОЛОЖЕНИЕ*/
+/* .position {*/
+/* Позиционирование */
+/* display: block;  /* Блочная модель. Присвойте свойству display значение line-block
+                      и    он останется на своем месте но позволит управлять его шириной и положением  */
+/* float: right;*/
+/* clear: left;  Запрет обтекания с лева. none — полностью отменяет запрет обтекания. both  - запрет обтекания на обе стороны.
+/* position: absolute; */
+/* overflow: visible; hidden; scroll; auto; Определяет поведение елемента выходящего за
+                                              граници рамки*/
+/* top: 0;*/
+/* right: 0;*/
+/* bottom: 0;*/
+/* background-position: center center; center bottom */
+/* left: 0;*/
+/* z-index: 100;*/
+/* }*/
+/* .container {*/
+/* width: 100vw;*/
+/* max-width: 1280px;*/
+/* padding: 0 20px 0 20px;*/
+/* }
+
+div {
+  position: relative; дает возможноть управлять положением елемента без влияния на другие
+                      относительно елементов которые его окружают. Обычно данное свойство дается родительскому блоку, а дочерниим absolute, что позволяет управлять положением дочерних елементов относительно родительского
+  position: absolute; дает возможноть управлять положением елемента относительно краев екрана, другие елементы перестают его видеть и он по умолчанию уходит на задний план
+  position: fixed; фиксирует положение блока относительно размеров екрана
+  position: sticky; фиксирует положение блока относительно родительского блока, дополнительно к этому свойству добавляется свойство положения блока
+}
+
+/* ОПРЕДЕЛЕНИЕ ПОЛОЖЕНИЯ ФОНА-РИСУНКА
+background-origin:  Определение начальной позиции фонового
+                    изображения
+border-box — изображение помещается в верхний левый угол области границы
+padding-box — изображение помещается в верхний левый угол области отступа
+content-box — изображение помещается в левый верхний угол области содержимого
+background-clip: задает,область появление.
+border-box - распологает фон по размерам рамки
+padding-box - распологает фон до краев внутренних отступов
+content-box - распологает фон по плоскости контента
+text;             - Фон закрашен внутри (обрезан) текста переднего плана.
+color: transparent;
+background-size: 100px 200px; устанавливает для фонового изображения ширину 100 пикселов и
+                                высоту 200 пикселов
+{
+background-image: url(tomato.png);
+background-color: orange;
+background-blend-mode - задает, как фоновые изображения элемента должны смешиваться друг с
+                        другом и с цветом фона элемента. (https://www.sarasoueidan.com/blog/compositing-and-blending-in-css/)
+}
+*/
+/* ВСТАВИТЬ ТЕКСТ */
+/* .mark::after {*/
+/* content: "new!";*/
+/* color: red;*/
+/* background-color: #ffff00;*/
+/* font-weight: 800;*/
+/* font-size: 36px;*/
+/* }*/
+/* БЭМ*/
+/* .page-header /* блок */
+/* .page-header––large /* модификатор блока*/
+/* .page-header_large /* модификатор по версии яндекс */
+/* .page-header__logo /* элемент */
+/* .page-header__logo––small /* модификатор элемента */
+/* .page-header__logo_small /* модификатор элемента по версии яндекс */
+/*ГРАФИКА
+ГРАДИАНТЫ
+ЛИНЕЙНЫЙ ГРАДИАНТ
+background-image: linear-gradient(to right, black, white); нарисовать градиент, изменяющий
+                                         цвет от черного к белому от левого угла к правому
+background-image: linear-gradient(to bottom, black, white); нарисовать градиент, изменяющий
+                                цвет от черного к белому от верхней части элемента к нижней
+background-image: linear-gradient(to bottom right, orange, red); нарисовать градиент,
+                            изменяющий цвет от оранжевого к красному от верхнего левого угла
+background-image: linear-gradient(135deg, rgb(0,0,0), rgb(204,204,204));
+
+УЗЛЫ ГРАДИАНТА
+background-image: linear-gradient(to right, black, white, black);
+background-image: linear-gradient(to right, #900 20%, #FC0 30%, #FC0 70%, #900 80%);
+                        первые 20 % протяженности элемента (слева направо) будут иметь фон из сплошного красного цвета. Затем, от 20%-ной до 30%-ной точки градиент плавно перейдет от красного к оранжевому цвету
+background-image:       Градиант через прозрачность
+linear-gradient(cyan, transparent),
+linear-gradient(225deg, magenta, transparent),
+linear-gradient(45deg, yellow, transparent);
+
+ПОВТОРЯЮЩИЙСЯ ЛИНЕЙНЫЙ ГРАДИАНТ
+background: repeating-linear-gradient(to bottom left, #900 20px, #FC0 30px, #900 40px)
+
+РАДИАЛЬНЫЙ ГРАДИАНТ
+background-image: radial-gradient(circle at 20% 40%, red, blue);
+
+perspective: none; пределяет расстояние между плоскостью z=0 и пользователем, чтобы придать 3D-позиционированному элементу некоторую перспективу.*/
+/*ФОТОГАЛЕРЕЯ-РИСУНКИ
+figure {
+  float: left; создает такое обтекание, при котором все пары «фотография/подпись»
+              выравниваются по левому краю окна браузера
+  display: inline-block;
+  vertical-align: top;
+  width: 210px;
+  border: 1px solid #666;
+  background-color: #FFF;
+  margin: 0 10px 10px 10px;
+  padding: 4px;
+  box-shadow: 2px 2px 4px rgba(0,0,0,.5);
+  }
+  figcaption {
+    font: 1.1em Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin: 10px 0 0 0;
+    }*/
+/*AНИМАЦИЯ
+TRANSITION Устанавливает эффект перехода между двумя состояниями элемента, они
+могут быть определены с помощью псевдоэлемента :hover или :active
+/*ПРИМЕР
+.menu {
+    transition-property: all;
+    transform: translateZ(0); предписывает обработку анимации видео карте которая
+                              более   производительна.
+    transition-duration: 2s;
+    transition-delay: 250ms; казывает продолжительность ожидания перед запуском
+   }
+   .menu:hover { top: 0;
+   transform: skew(45deg,0deg) scale(.5) translate(400px,500px) rotate(90deg); Можно задавать только эти параметры. Так как не замедляют систему (скашивание, масштаб, перемещение, поворот)
+   transition-delay: 250ms;
+   transition-timing-function: ease-in-out;Настраивает ускорение анимации
+}
+   или transition: top 1s ease-out 0.5s; Короткая запись
+
+
+TRANSFORM
+Трансформирует элемент, в частности, позволяет его масштабировать, вращать, сдвигать, наклонять, а также комбинировать виды трансформаций.
+
+transform: rotate(15deg); вращать
+
+transform: matrix(a, c, b, d, tx, ty);
+a-Изменение масштаба по горизонтали
+b - Изменение масштаба по горизонтали
+c - Изменение масштаба по горизонтали
+d - Изменение масштаба по вертикали.
+x - Смещение по горизонтали в пикселах.
+y - Смещение по вертикали в пикселах
+transform:translate(1px,2px);  первое определяет величину
+                               горизонтального, а второе — вертикального перемещения.
+transform: skew(25deg,10deg); Скашивание. Первое значение определяет наклон изображения
+                              по    горизрнтале, второе по вертикале
+transform-origin: 0% 0%; Задаем точку преобразования
+
+
+
+ANIMATION
+Gрименяет анимацию между стилями
+  .animation_circle {
+    animation-name:white_circle;
+    animation-duration: 500ms; Настраивает время в течение которого должен пройти один цикл анимации.
+    animation-timing-function:linear; Настраивает ускорение анимации
+    animation-iteration-count:infinite; количество повторении анимации
+    animation-direction: (normal reverse alternate-reverse); Дает возможность при каждом повторе анимации идти по альтернативному пути, либо сбросить все значения и повторить анимацию
+    animation-delay;
+    animation-fill-mode:forwards; Настраивает значения используемые анимацией до и после исполнения .
+    animation - краткая запись всех свойств по очереди
+    }
+
+  .animation_circle:hover {
+    animation-play-state: paused; Позволяет Вам приостановить и возобновить анимацию (none - сбросить анимацию)
+    }
+
+  @keyframes white_circle {
+    0% {}
+    50% {}
+    100% {}
+  }
+  примеры https://w1c.ru/css-15_udivitelnyh_tekstovyh_effektov_s_pomoschyu_css3.html*/
+/*ИЗОБРАЖЕНИЕ-АНИМАЦИЯ
+  .hat { /*помещения подписи поверх изображения c выведением текста поверх него
+  position: relative;
+  width: 500px;
+  height: 500px;
+  }
+  .hat figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right:0;
+  width: 500px; /*важно задать область текста с размером области изображения
+  height: 500px;
+  opacity: 0;
+  color: white;
+  text-align: center;
+  padding-top: 25%;
+  font-size: xx-large;
+transition-duration: 2s;
+     }
+figcaption:hover {
+  transition-duration: 2s;
+    opacity: 1;
+      }
+*/
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+/* Document
+   ========================================================================== */
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* Sections
+   ========================================================================== */
+/**
+ * Remove the margin in all browsers.
+ */
+body {
+  line-height: 1.2;
+}
+
+/**
+ * Render the `main` element consistently in IE.
+ */
+main {
+  display: block;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+hr {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+a {
+  background-color: transparent;
+}
+
+/**
+ * 1. Remove the bottom border in Chrome 57-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+abbr[title] {
+  border-bottom: none; /* 1 */
+  text-decoration: underline; /* 2 */
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted; /* 2 */
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+code,
+kbd,
+samp {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove the border on images inside links in IE 10.
+ */
+img {
+  border-style: none;
+}
+
+/* Forms
+   ========================================================================== */
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+button,
+input { /* 1 */
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+button,
+select { /* 1 */
+  text-transform: none;
+}
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+button,
+[type=button],
+[type=reset],
+[type=submit] {
+  -webkit-appearance: button;
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+button::-moz-focus-inner,
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+[type=submit]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+button:-moz-focusring,
+[type=button]:-moz-focusring,
+[type=reset]:-moz-focusring,
+[type=submit]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Correct the padding in Firefox.
+ */
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+legend {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+textarea {
+  overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10.
+ * 2. Remove the padding in IE 10.
+ */
+[type=checkbox],
+[type=radio] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+[type=search] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/* Interactive
+   ========================================================================== */
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav,
+section {
+  display: block;
+}
+
+/*
+* Add the correct display in all browsers.
+*/
+summary {
+  display: list-item;
+}
+
+/* Misc
+   ========================================================================== */
+/**
+ * Add the correct display in IE 10+.
+ */
+template {
+  display: none;
+}
+
+/**
+ * Add the correct display in IE 10.
+ */
+[hidden] {
+  display: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
