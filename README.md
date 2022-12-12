@@ -73,4 +73,4 @@ escape
 merge branch "main" from github + enter + escape
 :qa!+enter
 
-&& - задать несколько команд одновременно
+&& - задать несколько команд одновременно!!
